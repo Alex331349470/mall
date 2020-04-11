@@ -18,7 +18,7 @@ class CreateGoodsTable extends Migration
             $table->string('title')->comment('商品名称');
             $table->string('description')->nullable()->comment('商品描述');
             $table->boolean('on_hot')->default(true)->comment('推荐标识');
-            $table->boolean('on_sale')->default(true)-comment('上架标识');
+            $table->boolean('on_sale')->default(true)->comment('上架标识');
             $table->text('content')->comment('商品详情');
             $table->decimal('express_price', 10, 2)->default(0)->comment('市场价');
             $table->decimal('price', 10, 2)->default(0)->comment('售价');
