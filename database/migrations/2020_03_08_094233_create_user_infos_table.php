@@ -16,7 +16,7 @@ class CreateUserInfosTable extends Migration
         Schema::create('user_infos', function (Blueprint $table) {
             $table->bigIncrements('id')->comment('自增id');
             $table->integer('user_id')->index()->comment('外键user_id');
-            $table->smallInteger('call_user_method(method_name, obj)type')->default(0)->comment('账号类别：0-普通用户,1-二级代理,2-一级代理');
+            $table->smallInteger('type')->default(0)->comment('账号类别：0-普通用户,1-二级代理,2-一级代理');
             $table->smallInteger('gender')->default(0)->comment('性别:0-保密,1-男,2-女');
             $table->timestamps();
         });

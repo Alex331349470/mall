@@ -2,11 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d28919c-9eb9-4e84-ad96-829e9a422bb2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/AdController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/GoodsController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/OrderController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/ReplyController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/UserController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/UserInfoController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Model/Advertise.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Model/Goods.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Model/Order.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Model/Reply.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Model/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Model/UserInfo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/UserInfoFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/UserInfoSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/upload/images/7d2e3eb35968f2e31cc146f23226d663.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/upload/images/OIP.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/chartJs/Chart.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/gender.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_08_074655_create_images_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_08_074655_create_images_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_08_162327_create_goods_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_08_162327_create_goods_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_09_130858_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_09_130858_create_orders_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_08_094233_create_user_infos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_08_094233_create_user_infos_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -128,7 +151,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -142,7 +165,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ice_hot\Desktop\code\php\shop\resources\js" />
       <recent name="C:\Users\ice_hot\Desktop\code\php\shop" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ice_hot\Desktop\code\php\shop\public\vendor\laravel-admin\chartJs" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -176,7 +203,8 @@
       <workItem from="1586164323442" duration="602000" />
       <workItem from="1586171859827" duration="1417000" />
       <workItem from="1586590574101" duration="1871000" />
-      <workItem from="1586635602378" duration="7833000" />
+      <workItem from="1586635602378" duration="26785000" />
+      <workItem from="1586781216210" duration="4845000" />
     </task>
     <servers />
   </component>
