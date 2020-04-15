@@ -11,4 +11,8 @@ class User extends Model
     public function info() {
         return $this->hasOne(UserInfo::class, 'user_id', 'id');
     }
+
+    public function replies() {
+        return $this->hasMany(Reply::class, "user_id", "id");
+    }
 }

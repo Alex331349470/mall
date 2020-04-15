@@ -15,7 +15,7 @@ class ReplyController extends AdminController
      *
      * @var string
      */
-    protected $title = 'App\Model\Reply';
+    protected $title = '评论管理';
 
     /**
      * Make a grid builder.
@@ -26,14 +26,26 @@ class ReplyController extends AdminController
     {
         $grid = new Grid(new Reply());
 
-        $grid->column('id', __('Id'));
-        $grid->column('good_id', __('Good id'));
-        $grid->column('user_id', __('User id'));
-        $grid->column('order_id', __('Order id'));
-        $grid->column('images', __('Images'));
-        $grid->column('content', __('Content'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+
+        $grid->column('id', __('ID'));
+        $grid->column('goods.title', __('商品名'));
+        $grid->column('user.name', __('微信昵称'));
+        $grid->column('order_id', __('订单ID'));
+        $grid->column('images', __('评论图集'));
+        $grid->column('content', __('评论内容'));
+        $grid->column('created_at', __('评论时间'));
+
+        $grid->tools(function (Grid\Tools $tools) {
+            $tools->disableBatchActions();
+
+        });
+
+        $grid->actions(function (Grid\Displayers\Actions $action) {
+            $action->disableView();
+            $action->disableEdit();
+        });
+        $grid->disableCreateButton();
+        $grid->disableExport();
 
         return $grid;
     }

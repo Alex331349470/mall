@@ -21,7 +21,12 @@ Route::group([
     // 订单管理
     $router->resource('wx/orders', wx\OrderController::class);
     // 商品管理
+    // 商品
     $router->resource('wx/goods', wx\GoodsController::class);
+    // 分类
+    $router->resource('wx/categories', wx\CategoryController::class);
+    // 销售属性
+    $router->resource('wx/specifications', wx\SpecificationController::class);
     // 广告管理
     $router->resource('wx/advertises', wx\AdController::class);
     // 评论管理

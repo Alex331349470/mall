@@ -15,12 +15,14 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->bigIncrements('id')->comment('自增id');
-            $table->string('name')->comment('分类名称');
+            $table->string('name')->unique()->comment('分类名称');
             $table->unsignedBigInteger('parent_id')->nullable()->comment('父类id');
-            $table->foreign('parent_id')->references('id')->on('categories')->onDelete('cascade')->comment('外键约束');
-            $table->boolean('is_directory')->comment('是否拥有子类');
+//            $table->foreign('parent_id')->references('id')->on('categories')->onDelete('cascade')->comment('外键约束');
+//            $table->boolean('is_directory')->default(0)->comment('是否拥有子类');
             $table->unsignedInteger('level')->comment('当前分类层级');
-            $table->string('path')->comment('该分类所有父类id');
+//            $table->string('path')->nullable()->comment('该分类所有父类id');
+
+            $table->timestamps();
         });
     }
 

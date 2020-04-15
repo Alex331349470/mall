@@ -398,4 +398,9 @@ return [
     'extensions' => [
 
     ],
+
+    'category_level' => [
+        '一级栏目',
+        '二级栏目',
+    ],
 ];
