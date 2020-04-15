@@ -167,7 +167,18 @@ class CategoryController extends AdminController
 
     public function destroy($id)
     {
+        $count = Category::query()->where('parent_id', '=', $id)->count();
+        if ($count > 0) {
+            $error = [
+                'title' => '删除失败',
+                'message' => '当前栏目存在下级栏目，不能删除',
+            ];
+            return back()->with(compact('error'));
+        }
 
+        Category::destroy($id);
+
+        return redirect(route('categories.index'));
     }
 
 }
