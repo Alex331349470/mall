@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers\wx;
 
+use App\Admin\Extensions\ModelDelete;
 use App\Model\Category;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
@@ -44,6 +45,8 @@ class CategoryController extends AdminController
 
         $grid->actions(function (Grid\Displayers\Actions $action) {
             $action->disableView();
+            $action->disableDelete();
+            $action->add(new ModelDelete($action->getKey(), "categories"));
         });
 
         $grid->disableExport();
@@ -165,6 +168,8 @@ class CategoryController extends AdminController
 
     }
 
+
+
     public function destroy($id)
     {
         $count = Category::query()->where('parent_id', '=', $id)->count();
@@ -173,12 +178,11 @@ class CategoryController extends AdminController
                 'title' => '删除失败',
                 'message' => '当前栏目存在下级栏目，不能删除',
             ];
-            return back()->with(compact('error'));
+            return response()->json($error, 401);
         }
 
         Category::destroy($id);
-
-        return redirect(route('categories.index'));
+        return response()->json(['errno' => '200', 'errmsg' => '删除成功']);
     }
 
 }

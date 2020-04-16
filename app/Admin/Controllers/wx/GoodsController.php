@@ -15,7 +15,7 @@ class GoodsController extends AdminController
      *
      * @var string
      */
-    protected $title = 'App\Model\Goods';
+    protected $title = '商品';
 
     /**
      * Make a grid builder.
@@ -27,21 +27,19 @@ class GoodsController extends AdminController
         $grid = new Grid(new Goods());
 
         $grid->column('id', __('Id'));
-        $grid->column('title', __('Title'));
-        $grid->column('description', __('Description'));
-        $grid->column('on_hot', __('On hot'));
-        $grid->column('on_sale', __('On sale'));
-        $grid->column('content', __('Content'));
-        $grid->column('express_price', __('Express price'));
-        $grid->column('price', __('Price'));
-        $grid->column('rating', __('Rating'));
-        $grid->column('category_id', __('Category id'));
-        $grid->column('good_no', __('Good no'));
-        $grid->column('stock', __('Stock'));
-        $grid->column('sold_count', __('Sold count'));
-        $grid->column('review_count', __('Review count'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+        $grid->column('title', __('名称'));
+        $grid->column('description', __('描述'));
+        $grid->column('on_hot', __('是否推荐'));
+        $grid->column('on_sale', __('是否上架'));
+        $grid->column('express_price', __('市场价'));
+        $grid->column('price', __('售价'));
+        $grid->column('rating', __('评分'));
+        $grid->column('category_id', __('分类'));
+        $grid->column('good_no', __('商品货号'));
+        $grid->column('stock', __('库存'));
+        $grid->column('sold_count', __('销量'));
+        $grid->column('review_count', __('浏览量'));
+        $grid->column('created_at', __('创建时间'));
 
         return $grid;
     }
@@ -85,19 +83,19 @@ class GoodsController extends AdminController
     {
         $form = new Form(new Goods());
 
-        $form->text('title', __('Title'));
-        $form->text('description', __('Description'));
-        $form->switch('on_hot', __('On hot'))->default(1);
-        $form->switch('on_sale', __('On sale'))->default(1);
-        $form->textarea('content', __('Content'));
-        $form->decimal('express_price', __('Express price'))->default(0.00);
-        $form->decimal('price', __('Price'))->default(0.00);
-        $form->decimal('rating', __('Rating'))->default(5.00);
-        $form->number('category_id', __('Category id'));
-        $form->text('good_no', __('Good no'));
-        $form->number('stock', __('Stock'));
-        $form->number('sold_count', __('Sold count'));
-        $form->number('review_count', __('Review count'));
+        $form->text('title', __('名称'))->rules(['required', 'unique:goods', 'max:255'], ['required' => '名称必填', 'unique' => '名称已存在', 'max' => '名称最大长度为255']);
+        $form->text('description', __('描述'));
+        $form->switch('on_hot', __('是否推荐'))->default(1);
+        $form->switch('on_sale', __('是否上架'))->default(1);
+        $form->textarea('content', __('详情'));
+        $form->decimal('express_price', __('市场价'))->default(0.00);
+        $form->decimal('price', __('售价'))->default(0.00);
+        $form->decimal('rating', __('评分'))->default(5.00);
+        $form->number('category_id', __('分类'));
+        $form->text('good_no', __('商品货号'));
+        $form->number('stock', __('库存'));
+        $form->number('sold_count', __('销量'))->default(0);
+        $form->number('review_count', __('浏览量'))->default(0);
 
         return $form;
     }

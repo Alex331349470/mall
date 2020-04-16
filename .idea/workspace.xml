@@ -2,21 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d28919c-9eb9-4e84-ad96-829e9a422bb2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/CategoryController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/SpecificationController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/Category.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/Specification.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_04_15_061538_create_goods_categories_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Admin/Extensions/ModelDelete.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Model/GoodsSpec.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_04_16_035840_create_specifications_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/wx/ReplyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/ReplyController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/wx/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/wx/GoodsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/GoodsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/wx/SpecificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/SpecController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/wx/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Admin/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/Goods.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Goods.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/Reply.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Reply.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_08_093730_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_08_093730_create_categories_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_15_061538_create_goods_categories_table.php" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -137,6 +134,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -195,7 +193,12 @@
       <workItem from="1586781216210" duration="6156000" />
       <workItem from="1586854072043" duration="4621000" />
       <workItem from="1586914124303" duration="663000" />
-      <workItem from="1586930618407" duration="9903000" />
+      <workItem from="1586930618407" duration="12705000" />
+      <workItem from="1586943633998" duration="2504000" />
+      <workItem from="1586959465196" duration="6234000" />
+      <workItem from="1587001955150" duration="152000" />
+      <workItem from="1587006293919" duration="7673000" />
+      <workItem from="1587045465514" duration="1843000" />
     </task>
     <servers />
   </component>

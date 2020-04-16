@@ -26,7 +26,7 @@ Route::group([
     // 分类
     $router->resource('wx/categories', wx\CategoryController::class);
     // 销售属性
-    $router->resource('wx/specifications', wx\SpecificationController::class);
+    $router->resource('specifications', wx\SpecController::class);
     // 广告管理
     $router->resource('wx/advertises', wx\AdController::class);
     // 评论管理
