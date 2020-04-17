@@ -23,7 +23,8 @@ class CreateGoodsTable extends Migration
             $table->decimal('express_price', 10, 2)->default(0)->comment('市场价');
             $table->decimal('price', 10, 2)->default(0)->comment('售价');
             $table->float('rating')->default(5)->comment('星级平均评分');
-            $table->integer('category_id')->index()->comment('外键分类id');
+            $table->integer('category_id1')->index('category_id1')->comment('分类一级id');
+            $table->integer('category_id2')->index('category_id2')->comment('分类二级id');
             $table->string('good_no')->nullable()->comment('货号');
             $table->unsignedInteger('stock')->default(0)->comment('库存');
             $table->unsignedInteger('sold_count')->default(0)->comment('销量');
