@@ -28,7 +28,7 @@ class SpecController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new GoodsSpec());
-        $grid->model()->join('goods', 'good_id', '=', 'goods.id', 'inner')->select(['good_skus.id', 'good_skus.title', 'good_skus.description', 'good_skus.price', 'good_skus.stock', 'good_skus.created_at', 'goods.title' => 'title2', 'goods.stock' => 'stock2']);
+        $grid->model()->join('goods', 'good_id', '=', 'goods.id', 'inner')->selectRaw('mall_good_skus.*,mall_goods.title as title2,mall_goods.stock as stock2');
 
         $grid->column('id', __('Id'));
         $grid->column('title2', __('商品名称'));
@@ -41,8 +41,8 @@ class SpecController extends AdminController
 
         $grid->actions(function (Grid\Displayers\Actions $actions) {
             $actions->disableView();
-            $actions->disableDelete();
-            $actions->add(new ModelDelete($actions->getKey(), 'specifications'));
+//            $actions->disableDelete();
+//            $actions->add(new ModelDelete($actions->getKey(), 'specifications'));
         });
         $grid->disableExport();
         $grid->filter(function (Grid\Filter $filter) {
@@ -61,12 +61,16 @@ class SpecController extends AdminController
      */
     protected function detail($id)
     {
-        $show = new Show(Specification::findOrFail($id));
+        $show = new Show(GoodsSpec::query()->join('goods', 'good_id', '=', 'goods.id', 'inner')->selectRaw('mall_good_skus.*,mall_goods.title as title2,mall_goods.stock as stock2')->findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('title', __('Title'));
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
+        $show->field('title2', __('商品名称'));
+        $show->field('title', __('销售属性标题'));
+        $show->field('description', __('销售属性标题'));
+        $show->field('price', __('销售属性标题'));
+        $show->field('stock', __('销售属性标题'));
+        $show->field('stock2', __('销售属性标题'));
+        $show->field('created_at', __('创建时间'));
 
         return $show;
     }
@@ -80,12 +84,12 @@ class SpecController extends AdminController
     {
         $form = new Form(new GoodsSpec());
 
-        $rules = ['required', 'max:30'];
+        $rules = ['required', 'max:50'];
         $rules2 = ['required'];
         $messages = ['required' => '标题内容缺失', 'max' => '标题长度最大为30'];
-        $form->select('goods_id', '商品')->options(Goods::query()->get(['title', 'id'])->pluck('title', 'id'))->rules($rules2);
-        $form->text('title', __('销售属性'))->placeholder('内存,存储空间')->help('多个属性需要添加时，请以英文半角逗号 , 隔开')->rules($rules, $messages);
-        $form->text('description', __('属性值'))->placeholder('8G,32G')->help('销售属性多个时，值也对应多个，请以英文半角逗号 , 隔开')->rules($rules);
+        $form->select('good_id', '商品')->options(Goods::query()->get(['title', 'id'])->pluck('title', 'id'))->rules($rules2);
+        $form->text('title', __('销售属性'))->placeholder('内存,存储空间')->help('多个属性需要添加时，请以英文半角逗号 , 隔开，长度不得超过50个字符')->rules($rules, $messages);
+        $form->text('description', __('属性值'))->placeholder('8G,32G')->help('销售属性多个时，值也对应多个，请以英文半角逗号 , 隔开，长度不得超过50个字符')->rules($rules);
         $form->number('price', __('价格'))->rules($rules2)->help('该销售属性下的商品价格，单位：元');
         $form->number('stock', __('库存'))->rules($rules2)->help('该销售属性下的商品库存，单位：件');
         $form->disableViewCheck();
@@ -94,8 +98,4 @@ class SpecController extends AdminController
         return $form;
     }
 
-    public function destroy($id)
-    {
-
-    }
 }

@@ -185,4 +185,13 @@ class CategoryController extends AdminController
         return response()->json(['errno' => '200', 'errmsg' => '删除成功']);
     }
 
+    public function category2() {
+        $parent_id = request()->get('q');
+        if ($parent_id) {
+            return Category::query()->where('parent_id', $parent_id)->get(['id', DB::raw('name as text')]);
+        } else {
+            return [];
+        }
+    }
+
 }

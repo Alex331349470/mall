@@ -29,7 +29,7 @@ class AdController extends AdminController
         $grid->column('id', __('ID'));
         $grid->column('image', __('广告类型'));
         $grid->column('position', __('广告位编号'));
-        $grid->column('url', __('url地址'))->image();
+        $grid->column('url', __('广告图'))->image();
         $grid->column('created_at', __('创建时间'));
 
         return $grid;
@@ -48,7 +48,7 @@ class AdController extends AdminController
         $show->field('id', 'ID');
         $show->field('image', '广告类型');
         $show->field('position', '广告位编号');
-        $show->field('url', 'url地址')->image();
+        $show->field('url', '广告图')->image();
         $show->field('created_at', '创建时间');
         $show->field('updated_at', '更新时间');
 
@@ -66,7 +66,7 @@ class AdController extends AdminController
 
         $form->text('image', '广告类型');
         $form->text('position', '广告位编号');
-        $form->image('url', 'url地址');
+        $form->image('url', '广告图');
 
         return $form;
     }
