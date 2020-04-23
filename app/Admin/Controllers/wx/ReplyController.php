@@ -26,7 +26,6 @@ class ReplyController extends AdminController
     {
         $grid = new Grid(new Reply());
 
-
         $grid->column('id', __('ID'));
         $grid->column('goods.title', __('商品名'));
         $grid->column('user.name', __('微信昵称'));

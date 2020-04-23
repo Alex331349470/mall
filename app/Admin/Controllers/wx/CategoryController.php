@@ -111,11 +111,25 @@ class CategoryController extends AdminController
         if ($result != null) {
             return $result;
         }
-        $model->name = $data['name'];
-        $model->parent_id = $data['parent_id'];
-        $model->level = $data['level'];
-        $model->save();
 
+        DB::beginTransaction();
+        try{
+            $model->name = $data['name'];
+            $model->parent_id = $data['parent_id'];
+            $model->level = $data['level'];
+            $model->save();
+            if ($data['parent_id']) {
+                Category::query()->where('id', $data['parent_id'])->update(['is_directory' => 1]);
+            }
+            DB::commit();
+        }catch (\Exception $e) {
+            DB::rollBack();
+            $error = new MessageBag([
+                'title' => '更新失败',
+                'message' => $e->getMessage(),
+            ]);
+            return back()->with(compact('error'));
+        }
         return redirect(route('categories.index'));
     }
 
@@ -128,7 +142,24 @@ class CategoryController extends AdminController
         }
 
         $data['created_at'] = date('Y-m-d H:i:s');
-        Category::query()->insert($data);
+        DB::beginTransaction();
+        try{
+            Category::query()->insert($data);
+            if ($data['parent_id']) {
+                Category::query()->where('id', $data['parent_id'])->update([
+                    'is_directory' => 1
+                ]);
+            }
+            DB::commit();
+        }catch (\Exception $e) {
+            DB::rollBack();
+            $error = new MessageBag([
+                'title' => '添加失败',
+                'message' => $e->getMessage(),
+            ]);
+            return back()->with(compact('error'));
+        }
+
 
         return redirect(route('categories.index'));
     }

@@ -2,12 +2,18 @@
 
 namespace App\Admin\Controllers\wx;
 
+use App\Admin\Extensions\ModelDelete;
+use App\Admin\Extensions\ModelList;
 use App\Model\Category;
 use App\Model\Goods;
+use App\Model\GoodsImg;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
+use Encore\Admin\Layout\Content;
 use Encore\Admin\Show;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\MessageBag;
 use Illuminate\Validation\Rule;
 
 class GoodsController extends AdminController
@@ -58,6 +64,7 @@ class GoodsController extends AdminController
 
         $grid->actions(function (Grid\Displayers\Actions $actions) {
             $actions->disableView();
+            $actions->add(new ModelList($actions->getKey(), 'images.index', '图片列表'));
         });
 
         $grid->disableExport();
@@ -138,4 +145,118 @@ class GoodsController extends AdminController
         return $form;
     }
 
+    public function imageList(Content $content, Goods $goods) {
+//        dd($goods);
+        return $content->title($goods->title . ' 商品图集')
+            ->description($this->description['index'] ?? trans('admin.list'))
+            ->body($this->imgGrid());
+    }
+
+    protected function imgGrid() {
+        $grid = new Grid(new GoodsImg());
+
+        $grid->column('id', 'Id');
+        $grid->column('goods.title', '商品名称');
+        $grid->column('image', '展示图')->image();
+        $grid->column('description', '图片描述');
+        $grid->column('cover', '是否为商品封面')->display(function ($value) {
+            if ($value == 1) {
+                return '是';
+            } else {
+                return '否';
+            }
+        });
+        $grid->column('created_at', '创建时间');
+
+        $grid->actions(function (Grid\Displayers\Actions $actions) {
+            $actions->disableDelete();
+            $actions->add(new ModelDelete($actions->getKey(), 'images'));
+        });
+        $grid->disableExport();
+        $grid->disableFilter();
+        return $grid;
+    }
+
+    public function createImg(Content $content) {
+        return $content
+            ->title($this->title())
+            ->description($this->description['create'] ?? trans('admin.create'))
+            ->body($this->formImg());
+    }
+
+    public function editImg($image, Content $content) {
+        $id = request()->route('image');
+        return $content
+            ->title($this->title())
+            ->description($this->description['edit'] ?? trans('admin.edit'))
+            ->body($this->formImg()->edit($id));
+    }
+
+    protected function formImg() {
+        $form = new Form(new GoodsImg());
+
+        $rules = ['required'];
+        $form->hidden('good_id')->default(request()->route('goods'));
+        $form->image('image', '展示图')->removable()->rules($rules);
+        $form->text('description', '描述');
+        $form->switch('cover', '是否为封面图')->default(0);
+
+        $form->disableViewCheck();
+        $form->disableEditingCheck();
+        $form->disableCreatingCheck();
+        return $form;
+    }
+
+    public function updateImg()
+    {
+        $data = request()->all(['good_id', 'cover']);
+        $id = request()->route('image');
+        if ($data['cover'] == "on") {
+            $result = GoodsImg::coverIsOnly($data['good_id'], $id);
+            if (!$result) {
+                $error = new MessageBag([
+                    'title' => '更新失败',
+                    'message' => '封面图片已经存在，不能再添加',
+                ]);
+                return back()->with(compact('error'));
+            }
+        }
+        return $this->formImg()->update($id);
+    }
+
+    public function storeImg()
+    {
+        $data = request()->all(['good_id', 'cover']);
+        if ($data['cover'] == "on") {
+            $result = GoodsImg::coverIsOnly($data['good_id']);
+            if (!$result) {
+                $error = new MessageBag([
+                    'title' => '添加失败',
+                    'message' => '封面图片已经存在，不能再添加',
+                ]);
+                return back()->with(compact('error'));
+            }
+        }
+        return $this->formImg()->store();
+    }
+
+    public function destroyImg()
+    {
+        try {
+            $goodsImg = GoodsImg::query()->findOrFail(request()->route('image'));
+            $path = $goodsImg->image;
+            $goodsImg->delete();
+            unlink($path);
+            $result = [
+                'status'  => true,
+                'message' => trans('admin.delete_succeeded'),
+            ];
+        } catch (\Exception $e) {
+            $result = [
+                'status'  => false,
+                'message' => trans('admin.delete_failed') . '，' . $e->getMessage(),
+            ];
+        }
+        return response()->json($result);
+    }
 }
