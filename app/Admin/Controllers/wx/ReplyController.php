@@ -36,7 +36,6 @@ class ReplyController extends AdminController
 
         $grid->tools(function (Grid\Tools $tools) {
             $tools->disableBatchActions();
-
         });
 
         $grid->actions(function (Grid\Displayers\Actions $action) {
@@ -45,7 +44,10 @@ class ReplyController extends AdminController
         });
         $grid->disableCreateButton();
         $grid->disableExport();
-
+        $grid->filter(function (Grid\Filter $filter) {
+            $filter->disableIdFilter();
+            $filter->like('goods.title', '商品名');
+        });
         return $grid;
     }
 

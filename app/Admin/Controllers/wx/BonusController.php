@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers\wx;
 
+use App\Admin\Extensions\BonusExcleExpoter;
 use App\Admin\Extensions\BonusFlush;
 use App\Admin\Extensions\CommissionInfoList;
 use App\Admin\Extensions\ModelList;
@@ -57,6 +58,13 @@ class BonusController extends AdminController
             $actions->disableView();
             $actions->add(new BonusFlush($actions->row->id, $actions->row->year_month1, '一键清除'));
             $actions->add(new CommissionInfoList($actions->row->id, $actions->row->year_month1, 'commission.info.list', '绩效详情'));
+        });
+        $grid->exporter(new BonusExcleExpoter());
+        $grid->disableCreateButton();
+        $grid->filter(function (Grid\Filter $filter) {
+            $filter->disableIdFilter();
+            $filter->like('name', '姓名');
+            $filter->equal('phone', '手机号');
         });
         return $grid;
     }

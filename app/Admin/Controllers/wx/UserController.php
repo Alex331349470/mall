@@ -38,6 +38,12 @@ class UserController extends AdminController
         $grid->column('avatar', __('微信头像'));
         $grid->column('created_at', __('创建时间'));
 
+        $grid->disableExport();
+        $grid->filter(function (Grid\Filter $filter) {
+            $filter->disableIdFilter();
+            $filter->like('name', '微信昵称');
+            $filter->equal('phone', '手机号');
+        });
         return $grid;
     }
 

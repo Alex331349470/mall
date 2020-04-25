@@ -2,6 +2,8 @@
 
 namespace App\Admin\Controllers\wx;
 
+use App\Admin\Extensions\ModelList;
+use App\Admin\Extensions\OrderExcelExporter;
 use App\Model\Order;
 use App\Model\OrderItem;
 use Encore\Admin\Controllers\AdminController;
@@ -47,12 +49,18 @@ class OrderController extends AdminController
         $grid->column('extra', __('其他数据'));
         $grid->column('created_at', __('创建时间'));
 
+        $grid->actions(function (Grid\Displayers\Actions $actions) {
+            $actions->disableDelete();
+            $actions->disableView();
+            $actions->add(new ModelList($actions->getKey(), 'order.info.list', '订单详情'));
+        });
         $grid->filter(function (Grid\Filter $filter) {
             $filter->disableIdFilter();
             $filter->like('no', '编号');
             $filter->like('user.name', '会员名');
         });
         $grid->disableCreateButton();
+        $grid->exporter(new OrderExcelExporter());
         return $grid;
     }
 

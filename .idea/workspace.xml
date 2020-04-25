@@ -2,8 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d28919c-9eb9-4e84-ad96-829e9a422bb2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Admin/Extensions/BonusExcleExpoter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Admin/Extensions/OrderExcelExporter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/excel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user_type.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/mall.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mall.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/wx/AdController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/AdController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/wx/BonusController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/BonusController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/wx/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/wx/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/wx/ReplyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/ReplyController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/wx/SpecController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/SpecController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/wx/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/wx/UserInfoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/UserInfoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/Bonus.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Bonus.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/gender.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/gender.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -118,6 +137,10 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
       <path value="$PROJECT_DIR$/vendor/codingyu/ueditor" />
       <path value="$PROJECT_DIR$/vendor/codingyu/laravel-ueditor" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet" />
+      <path value="$PROJECT_DIR$/vendor/maatwebsite/excel" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/matrix" />
     </include_path>
   </component>
   <component name="ProjectId" id="1aA2xG3ONP7cGEnPBOqFl4GXWO5" />
@@ -128,7 +151,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Admin/Extensions" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -142,13 +165,14 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\ice_hot\Desktop\code\php\shop\public\vendor\laravel-admin\chartJs" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ice_hot\Desktop\code\php\shop\resources\views" />
       <recent name="C:\Users\ice_hot\Desktop\code\php\shop\app\Admin\Extensions" />
       <recent name="C:\Users\ice_hot\Desktop\code\php\shop\resources\js" />
       <recent name="C:\Users\ice_hot\Desktop\code\php\shop" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ice_hot\Desktop\code\php\shop\public\vendor\laravel-admin\chartJs" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -199,7 +223,7 @@
       <workItem from="1587463622321" duration="1074000" />
       <workItem from="1587475918074" duration="8682000" />
       <workItem from="1587648525101" duration="3707000" />
-      <workItem from="1587795351209" duration="1097000" />
+      <workItem from="1587795351209" duration="10171000" />
     </task>
     <servers />
   </component>

@@ -32,6 +32,8 @@ class AdController extends AdminController
         $grid->column('url', __('广告图'))->image();
         $grid->column('created_at', __('创建时间'));
 
+        $grid->disableExport();
+        $grid->disableFilter();
         return $grid;
     }
 

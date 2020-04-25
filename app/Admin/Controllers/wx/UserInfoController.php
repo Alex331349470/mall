@@ -32,10 +32,15 @@ class UserInfoController extends AdminController
 
             $gender = $query->select(DB::raw('count(gender) as count, gender'))
                 ->groupBy('gender')->get()->pluck('count', 'gender')->toArray();
-
-            $doughnut = view('gender', compact('gender'));
+            $doughnut = view('gender', compact('gender')) ;
 
             return new Box('性别比例', $doughnut);
+        });
+        $grid->footer(function ($query) {
+            $user_type = $query->select(DB::raw('count(type) as count, type'))->groupBy('type')->get()->pluck('count', 'type')->toArray();
+            $doughnut = view('user_type', compact('user_type'));
+
+            return new Box('类型比例', $doughnut);
         });
 
         $grid->column('id', __('ID'));
@@ -64,6 +69,16 @@ class UserInfoController extends AdminController
             }
         });
 
+        $grid->actions(function (Grid\Displayers\Actions $actions) {
+            $actions->disableDelete();
+        });
+        $grid->disableExport();
+        $grid->filter(function (Grid\Filter $filter) {
+            $filter->disableIdFilter();
+            $filter->like('name', '微信昵称');
+            $filter->equal('phone', '手机号');
+        });
+        $grid->disableCreateButton();
         return $grid;
     }
 
@@ -119,6 +134,9 @@ class UserInfoController extends AdminController
             '2' => '女',
         ]);
 
+        $form->disableCreatingCheck();
+        $form->disableEditingCheck();
+        $form->disableViewCheck();
         return $form;
     }
 }

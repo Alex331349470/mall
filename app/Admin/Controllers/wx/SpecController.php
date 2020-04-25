@@ -46,6 +46,7 @@ class SpecController extends AdminController
         });
         $grid->disableExport();
         $grid->filter(function (Grid\Filter $filter) {
+            $filter->disableIdFilter();
             $filter->like('title2', '商品名称');
             $filter->like('title', '属性名称');
         });

@@ -49,6 +49,10 @@ class CategoryController extends AdminController
             $action->add(new ModelDelete($action->getKey(), "categories"));
         });
 
+        $grid->filter(function (Grid\Filter $filter) {
+            $filter->disableIdFilter();
+            $filter->like('name', '栏目名称');
+        });
         $grid->disableExport();
         return $grid;
     }
