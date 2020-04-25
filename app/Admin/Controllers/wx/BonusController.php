@@ -31,7 +31,7 @@ class BonusController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Bonus());
-        $grid->model()->join('users', 'user_id', '=', 'users.id')->groupByRaw('left(mall_bonuses.created_at,7),user_id')->selectRaw('mall_users.id,name,phone,left(mall_bonuses.created_at,7) as year_month1,max(user_type) as user_type,sum(bonus) as bonus');
+        $grid->model()->join('users', 'user_id', '=', 'users.id')->groupByRaw('left(mall_bonuses.created_at,7),user_id')->selectRaw('mall_users.id,name,phone,left(mall_bonuses.created_at,7) as year_month1,max(user_type) as user_type,sum(bonus) as bonus')->orderByRaw('year_month1 desc,id desc');
 
         $grid->column('id', __('Id'));
         $grid->column('name', __('姓名'));

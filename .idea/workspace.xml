@@ -2,22 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d28919c-9eb9-4e84-ad96-829e9a422bb2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/BonusController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Admin/Extensions/BonusFlush.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Admin/Extensions/CommissionInfoList.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Admin/Extensions/ModelList.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/Bonus.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/GoodsImg.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/OrderItem.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/wx/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/wx/GoodsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/GoodsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/wx/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/wx/ReplyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/ReplyController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_08_093730_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_08_093730_create_categories_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/wx/BonusController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/wx/BonusController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -212,7 +198,8 @@
       <workItem from="1587393956792" duration="3725000" />
       <workItem from="1587463622321" duration="1074000" />
       <workItem from="1587475918074" duration="8682000" />
-      <workItem from="1587648525101" duration="3579000" />
+      <workItem from="1587648525101" duration="3707000" />
+      <workItem from="1587795351209" duration="1097000" />
     </task>
     <servers />
   </component>
