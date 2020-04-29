@@ -122,17 +122,9 @@ class UserInfoController extends AdminController
         $form->display('user.name', __('微信昵称'))->disable();
         $form->display('user.phone', __('手机号'))->disable();
         // 账号类别：0-普通用户,1-二级代理,2-一级代理
-        $form->radio('type', __('账号类别'))->options([
-            '0' => '普通用户',
-            '1' => '二级代理',
-            '2' => '一级代理',
-        ]);
+        $form->radio('type', __('账号类别'))->options(config('admin.user_type'));
         // 性别:0-保密,1-男,2-女
-        $form->radio('gender', __('性别'))->options([
-            '0' => '保密',
-            '1' => '男',
-            '2' => '女',
-        ]);
+        $form->radio('gender', __('性别'))->options(config('admin.gender'));
 
         $form->disableCreatingCheck();
         $form->disableEditingCheck();

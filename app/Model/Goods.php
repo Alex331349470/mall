@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Goods extends Model
 {
+    public function images() {
+        return $this->hasMany(GoodsImg::class, 'good_id', 'id', 'left');
+    }
+
     public function replies() {
         return $this->hasMany(Reply::class, "goods_id", "id");
     }
