@@ -138,7 +138,7 @@ class GoodsController extends AdminController
 
         $form->text('good_no', __('商品货号'));
         $form->number('stock', __('库存'))->attribute('min', '0')->required()->rules($rules);
-        $form->hasMany('images', function (Form\NestedForm $form) {
+        $form->hasMany('images', '商品图集',function (Form\NestedForm $form) {
             $form->text('description', '图片描述');
             $form->image('image', '产品图片')->rules('image');
         });
